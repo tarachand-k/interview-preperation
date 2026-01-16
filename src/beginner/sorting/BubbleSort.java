@@ -1,4 +1,4 @@
-package sorting;
+package beginner.sorting;
 
 import java.util.Arrays;
 
