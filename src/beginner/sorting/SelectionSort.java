@@ -17,7 +17,7 @@ public class SelectionSort {
             int maxIndex = findMaxIndex(arr, 0, lastIndex);
 
             // swap max with last element
-            swapElements(arr, maxIndex, lastIndex);
+            BubbleSort.swap(arr, maxIndex, lastIndex);
         }
     }
 
@@ -28,11 +28,5 @@ public class SelectionSort {
         }
 
         return maxIdx;
-    }
-
-    static void swapElements(int[] arr, int first, int second) {
-        int temp = arr[first];
-        arr[first] = arr[second];
-        arr[second] = temp;
     }
 }

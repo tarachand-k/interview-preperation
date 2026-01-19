@@ -19,9 +19,7 @@ public class BubbleSort {
             for (int j = 1; j < arr.length - i; j++) {
                 // swap if the item is smaller than the previous item
                 if (arr[j] < arr[j - 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j - 1];
-                    arr[j - 1] = temp;
+                    swap(arr, j, j - 1);
                     isSwaped = true;
                 }
             }
@@ -29,5 +27,11 @@ public class BubbleSort {
             // if it did not swap after each step, then the array is sorted hence stop the loop
             if (!isSwaped) break;
         }
+    }
+
+    static void swap(int[] arr, int first, int second) {
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
     }
 }
