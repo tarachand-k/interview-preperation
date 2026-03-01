@@ -2,8 +2,8 @@ package patterns.sliding_window;
 
 public class MinSizeSubarraySum {
     public static void main(String[] args) {
-        int[] nums = {2, 3, 1, 2, 4, 3};
-        System.out.println(optimized(2, nums));
+        int[] nums = {1, 1, 1, 1, 1, 1, 1, 1};
+        System.out.println(optimized2(11, nums));
     }
 
     public static int optimized(int target, int[] nums) {
@@ -36,5 +36,24 @@ public class MinSizeSubarraySum {
         }
 
         return minLength < Integer.MAX_VALUE ? minLength : 0;
+    }
+
+    public static int optimized2(int target, int[] nums) {
+        int minLength = Integer.MAX_VALUE;
+        int low = 0, high = 0;
+        int windowSum = 0;
+
+        while (high < nums.length) {
+            windowSum = windowSum + nums[high];
+
+            while (windowSum >= target) {
+                minLength = Math.min(minLength, high - low + 1);
+                windowSum = windowSum - nums[low];
+                low++;
+            }
+            high++;
+        }
+
+        return minLength == Integer.MAX_VALUE ? 0 : minLength;
     }
 }
